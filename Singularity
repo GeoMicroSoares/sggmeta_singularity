@@ -25,8 +25,16 @@ GEOCARB-CYMRU (http://www.nrn-lcee.ac.uk/geo-carb-cymru/).
 	yes | apt-get install automake autoconf zlib1g-dev
 	#install fastp
 	git clone https://github.com/OpenGene/fastp && cd fastp && make && make install
-	#install IDBA
-	cd && git clone https://github.com/loneknightpy/idba && cd idba && ./build.sh
+	#install Sickle
+	yes | apt-get install zlib1g-dev
+	cd && git clone https://github.com/najoshi/sickle && cd sickle && make
+	#install IDBA 
+	cd && git clone https://github.com/loneknightpy/idba && cd idba/ \
+		&& ./build.sh
+	#install metaSPADES
+	yes | apt-get install wget
+	cd && wget http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0-Linux.tar.gz && tar -xzf SPAdes-3.13.0-Linux.tar.gz && \
+		cd SPAdes-3.13.0-Linux/bin/
 	#install CheckM plus its dependency, pplacer, plus its dependencies, bah
 	#add-apt-repository ppa:avsm/ocaml42+opam120
 	yes | apt-get update
@@ -94,7 +102,7 @@ GEOCARB-CYMRU (http://www.nrn-lcee.ac.uk/geo-carb-cymru/).
 	wget https://cran.r-project.org/src/contrib/pillar_1.3.0.tar.gz && R CMD INSTALL pillar_1.3.0.tar.gz
 	wget https://cloud.r-project.org/src/contrib/tibble_1.4.2.tar.gz && R CMD INSTALL tibble_1.4.2.tar.gz
 	wget https://cloud.r-project.org/src/contrib/withr_2.1.2.tar.gz && R CMD INSTALL withr_2.1.2.tar.gz
-	wget https://cloud.r-project.org/src/contrib/digest_0.6.17.tar.gz && R CMD INSTALL digest_0.6.17.tar.gz
+	wget https://cloud.r-project.org/src/contrib/digest_0.6.18.tar.gz && R CMD INSTALL digest_0.6.18.tar.gz
 	wget https://cran.r-project.org/src/contrib/ggplot2_3.0.0.tar.gz && R CMD INSTALL ggplot2_3.0.0.tar.gz
 	cd && git clone https://github.com/cmks/DAS_Tool.git && cd DAS_Tool && R CMD INSTALL ./package/*tar.gz && unzip ./db.zip -d db
 
